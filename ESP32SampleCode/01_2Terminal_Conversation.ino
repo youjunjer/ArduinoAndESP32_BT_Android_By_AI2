@@ -11,13 +11,13 @@ void setup(){
 void loop(){
   //ESP32->Android
   if(Serial.available())  {
-    String data=Serial.readString();
-    SerialBT.println(data);
+    String Sdata=Serial.readString();
+    SerialBT.println(Sdata);
   } 
   //Android->ESP32
   if(SerialBT.available())  {
-    String data=SerialBT.readString();
-    Serial.println(data);
+    String BTdata=SerialBT.readString();
+    Serial.println(BTdata);
   }
   delay(1); 
 }
