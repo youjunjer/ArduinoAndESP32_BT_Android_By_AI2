@@ -1,15 +1,19 @@
 //這個程式將會對配對的裝置(Android)送出Button命令給ESP32，這些命令會使用文元'1','2','3'....等進行傳輸，ESP32則針對收到的文字來改變腳位狀態
 //This code will receive button command from android, such as '1','2','3'... When ESP32 receive the command, it will change the state of pins.
+// GPIO 15 -> GreenLED
+// GPIO 2  -> YellowLED
+// GPIO 4  -> RedLED
+// GPIO 16 -> Other 
 #include <BluetoothSerial.h>
 BluetoothSerial SerialBT;
 
 void setup(){
   Serial.begin(115200);
   SerialBT.begin("Your ESP32 BT Name");//請將這裡改成你喜歡的藍芽名稱
-  pinMode(15,OUTPUT); //綠色LED
-  pinMode(2,OUTPUT); //黃色LED
-  pinMode(4,OUTPUT); //紅色LED
-  pinMode(13,OUTPUT); //其他裝置(例如繼電器)
+  pinMode(15,OUTPUT); //GreenLED
+  pinMode(2,OUTPUT); //YellowLED
+  pinMode(4,OUTPUT); //RedLED
+  pinMode(16,OUTPUT); //Other(例如繼電器)
 }
 
 void loop(){
@@ -23,14 +27,14 @@ void loop(){
     Serial.println("");
     while(SerialBT.available())  {
       char btdata=SerialBT.read();
-      if(btdata=='1') {digitalWrite(15,HIGH);}//開綠燈
-      if(btdata=='2') {digitalWrite(15,LOW);}//關綠燈
-      if(btdata=='3') {digitalWrite(2,HIGH);}//開黃燈
-      if(btdata=='4') {digitalWrite(2,LOW);}//關黃燈
-      if(btdata=='5') {digitalWrite(4,HIGH);}//開紅燈
-      if(btdata=='6') {digitalWrite(4,LOW);}//關紅燈
-      if(btdata=='7') {digitalWrite(13,HIGH);}//開裝置
-      if(btdata=='8') {digitalWrite(13,LOW);}//關裝置
+      if(btdata=='1') {digitalWrite(15,HIGH);}//Turn ON GreenLed
+      if(btdata=='2') {digitalWrite(15,LOW);}//Turn OFF GreenLed
+      if(btdata=='3') {digitalWrite(2,HIGH);}//Turn ON YellowLed
+      if(btdata=='4') {digitalWrite(2,LOW);}//Turn OFF YellowLed
+      if(btdata=='5') {digitalWrite(4,HIGH);}//Turn ON RedLed
+      if(btdata=='6') {digitalWrite(4,LOW);}//Turn OFF RedLed
+      if(btdata=='7') {digitalWrite(16,HIGH);}//Turn ON OtherDevice
+      if(btdata=='8') {digitalWrite(16,LOW);}//Turn OFF OtherDevice
       Serial.print(btdata);
   }  
   delay(1);
