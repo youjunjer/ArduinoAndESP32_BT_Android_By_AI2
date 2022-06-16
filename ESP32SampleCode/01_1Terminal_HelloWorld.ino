@@ -3,14 +3,12 @@
 #include <BluetoothSerial.h>
 BluetoothSerial SerialBT;
 
-void setup()
-{
+void setup(){
   Serial.begin(115200);
   SerialBT.begin("Your ESP32 BT Name");//請將這裡改成你喜歡的藍芽名稱
 }
 
-void loop()
-{
+void loop(){
   SerialBT.println("Hello World");
   delay(1000);
 }
