@@ -19,5 +19,5 @@ void loop(){
     String data=SerialBT.readString();
     Serial.println(data);
   }
-  delay(1);
+  delay(1); 
 }
