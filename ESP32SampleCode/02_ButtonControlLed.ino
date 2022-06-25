@@ -1,4 +1,4 @@
-//這個程式將會對配對的裝置(Android)送出Button命令給ESP32，這些命令會使用文元'1','2','3'....等進行傳輸，ESP32則針對收到的文字來改變腳位狀態
+//這個程式將會對配對的裝置(Android)送出Button命令給ESP32，這些命令會使用字元'1','2','3'....等進行傳輸，ESP32則針對收到的文字來改變腳位狀態
 //This code will receive button command from android, such as '1','2','3'... When ESP32 receive the command, it will change the state of pins.
 // GPIO 15 -> GreenLED
 // GPIO 2  -> YellowLED
@@ -36,6 +36,7 @@ void loop(){
       if(btdata=='7') {digitalWrite(16,HIGH);}//Turn ON OtherDevice
       if(btdata=='8') {digitalWrite(16,LOW);}//Turn OFF OtherDevice
       Serial.print(btdata);
+      }
   }  
   delay(1);
 }
