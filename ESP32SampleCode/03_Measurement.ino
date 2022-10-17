@@ -2,7 +2,6 @@
 // 會使用到RGB全彩LED及DHT11，請先安裝SimpleDHT及ESP32 analogWrite程式庫
 // GPIO 15 -> Blue pin of RGBLED 
 // GPIO 2  -> Green pin of RGBLED 
-// GPIO 0  -> GND pin of RGBLED 
 // GPIO 4  -> Red pin of RGBLED 
 // GPIO 16 -> Signal pin of DHT 11
 // 3.3V    -> Vin pin of DHT11
